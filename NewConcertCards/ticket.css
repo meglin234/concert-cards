@@ -1,0 +1,130 @@
+/* TICKET */
+
+body {
+    background-color: black;
+  }
+
+  .ticket {
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: #04030C;
+    width: 825px;
+    height: 300px;
+    border-radius: 15px;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: space-between;
+    
+    margin: 10% auto auto auto;
+    padding: 2%;
+    color: #fff;;
+  }
+
+
+  .artist {
+    font-size: 60px;
+    margin: auto 2% 2%;
+    font-weight: bold;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  }
+  
+  .show {
+    flex: 1;
+    overflow: auto;
+    width: 40%;
+    font-size: 40px;
+    margin: auto 2%;
+    font-weight: bold;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  }
+
+  /*.opener::after {
+    position: absolute;
+    bottom: -12.5px; 
+    left: 0;
+    width: 100%;
+
+    align-self: stretch;
+    content: '';
+    border:3px solid #fff;
+    opacity: 1;
+    -webkit-filter: drop-shadow(none);
+            filter: drop-shadow(none);
+  }*/
+
+  .opener {
+    min-height: 22px;
+    font-size: 20px;
+    margin: 0 0 2% 2%;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  }
+
+  .datevenue::before {
+    position: absolute;
+    top: -10px; /* Adjust this value as needed */
+    left: 0;
+    width: 100%;
+
+    align-self: stretch;
+    content: '';
+    border:3px solid #fff;
+    opacity: 1;
+    -webkit-filter: drop-shadow(none);
+            filter: drop-shadow(none);
+  }
+
+  .datevenue {
+    min-height: 22px;
+    margin: auto 2%;
+    font-size: 20px;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  }
+
+ 
+  
+  .rip {
+    border-right: 8px dotted #436ea5;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 530px;
+  }
+  
+  .cta .buy {
+    position: absolute;
+    top: 135px;
+    right: 15px;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #436ea5;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+              transform: rotate(-90deg);
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+              filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  }
+  
+  .small {
+    font-weight: 200;
+  }
+  
+  
+  .ticket-2{
+      background-image: url(https://images.unsplash.com/photo-1550184658-ff6132a71714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80);
+  }
