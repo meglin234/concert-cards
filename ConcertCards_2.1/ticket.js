@@ -32,8 +32,13 @@
       // Create ticket main div
       const ticketMainDiv = document.createElement('div');
       ticketMainDiv.className = 'ticket-main';
-      ticketMainDiv.style.backgroundImage = `url('images/${data[0]}')`;
-      ticketMainDiv.style.backgroundSize = "cover";
+
+
+      // Load image lazily
+      const lazyImage = document.createElement('div');
+      lazyImage.className = 'lazy-image';
+      lazyImage.dataset.src = `images/${data[0]}`;
+      ticketMainDiv.appendChild(lazyImage);
 
       // Create other ticket elements
       const elements = ['artist', 'show', 'opener', 'datevenue'];
@@ -69,6 +74,30 @@
       ticketContainer.appendChild(ticketDiv);
     }
 
-    
+    // Lazy load images when they come into view
+    document.addEventListener('DOMContentLoaded', function () {
+      const lazyImages = document.querySelectorAll('.lazy-image');
 
-    
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      };
+
+      const imageObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            lazyImage.style.backgroundImage = `url('${lazyImage.dataset.src}')`;
+            lazyImage.classList.remove('lazy-image');
+            imageObserver.unobserve(lazyImage);
+          }
+        });
+      }, options);
+
+      lazyImages.forEach(function (lazyImage) {
+        imageObserver.observe(lazyImage);
+      });
+    });
+
+        
