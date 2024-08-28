@@ -56,11 +56,15 @@ for i in range(len(df)):
         df.loc[i,'Seat'] = df.loc[i,'Seats'].split("-")[0].strip()
         df.loc[i,'Section'] = df.loc[i,'Section'].split(".")[0].strip()
 
-    elif df.loc[i,'SeatType'] == 'GA':
+    if df.loc[i,'SeatType'] == 'GA':
         df.loc[i,'Row'] = 'GENERAL ADMISSION'
+        df.loc[i,'Seat'] = np.nan
+        df.loc[i,'Section'] = np.nan
 
-    elif df.loc[i,'SeatType'] == 'GA Lawn':
+    if df.loc[i,'SeatType'] == 'GA Lawn':
         df.loc[i,'Row'] = 'GENERAL ADMISSION: LAWN'
+        df.loc[i,'Seat'] = np.nan
+        df.loc[i,'Section'] = np.nan
 
 ## Order by date and select columns
 sorted_df = df.sort_values(by=['Date'], ascending = False)
