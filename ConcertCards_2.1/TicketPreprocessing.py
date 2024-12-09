@@ -6,7 +6,7 @@ from datetime import datetime
 df = pd.read_csv('data/RawConcertTicketData.csv')
 
 ## Create datetime column
-df['FormattedDate'] = pd.to_datetime(df['Date']).dt.strftime('%B %d')
+df['FormattedDate'] = pd.to_datetime(df['Date']).dt.strftime('%b %-d, %Y')
 
 ## Convert 'Section' column to type string
 df['Section'] = df['Section'].apply(lambda x: str(x) if pd.notnull(x) else None)
@@ -56,15 +56,11 @@ for i in range(len(df)):
         df.loc[i,'Seat'] = df.loc[i,'Seats'].split("-")[0].strip()
         df.loc[i,'Section'] = df.loc[i,'Section'].split(".")[0].strip()
 
-    if df.loc[i,'SeatType'] == 'GA':
+    elif df.loc[i,'SeatType'] == 'GA':
         df.loc[i,'Row'] = 'GENERAL ADMISSION'
-        df.loc[i,'Seat'] = np.nan
-        df.loc[i,'Section'] = np.nan
 
-    if df.loc[i,'SeatType'] == 'GA Lawn':
+    elif df.loc[i,'SeatType'] == 'GA Lawn':
         df.loc[i,'Row'] = 'GENERAL ADMISSION: LAWN'
-        df.loc[i,'Seat'] = np.nan
-        df.loc[i,'Section'] = np.nan
 
 ## Order by date and select columns
 sorted_df = df.sort_values(by=['Date'], ascending = False)
